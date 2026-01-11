@@ -1,6 +1,6 @@
 
 
-from my_calculator_tool import create_calculator_registry
+from tools.my_tools.my_calculator_tool import create_calculator_registry
 
 
 def test_calculator_tool():
@@ -38,11 +38,12 @@ def test_with_simple_agent():
     print("🤖 与SimpleAgent集成测试:")
 
     # 模拟SimpleAgent使用工具的场景
+    # 用户也不会这么说
     user_question = "请帮我计算 sqrt(16) + 2 * 3"
 
     print(f"用户问题: {user_question}")
 
-    # 使用工具计算
+    # 使用工具计算: 调用不清晰
     calc_result = registry.execute_tool("my_calculator", "sqrt(16) + 2 * 3")
     print(f"计算结果: {calc_result}")
 
