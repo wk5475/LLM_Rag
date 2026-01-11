@@ -1,6 +1,8 @@
-# test_advanced_search.py
+
+
 from dotenv import load_dotenv
-from tools.my_search.my_advanced_search import create_advanced_search_registry, MyAdvancedSearchTool
+
+from tools.my_tools.my_advanced_search import create_advanced_search_registry, MyAdvancedSearchTool
 
 # 加载环境变量
 load_dotenv()
@@ -48,6 +50,8 @@ def test_with_agent():
     print(f"工具描述:\n{tools_desc}")
 
 if __name__ == "__main__":
+
     test_advanced_search()
-    test_api_configuration()
-    test_with_agent()
+    # test_api_configuration()
+    # test_with_agent()
+

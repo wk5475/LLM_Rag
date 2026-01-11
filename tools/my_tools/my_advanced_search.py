@@ -1,6 +1,5 @@
 
 import os
-from typing import Optional, List, Dict, Any
 from tools.registry import ToolRegistry
 
 class MyAdvancedSearchTool:
@@ -49,14 +48,11 @@ class MyAdvancedSearchTool:
         # 检查是否有可用的搜索源
         if not self.search_sources:
             return """❌ 没有可用的搜索源，请配置以下API密钥之一:
-
-1. Tavily API: 设置环境变量 TAVILY_API_KEY
-   获取地址: https://tavily.com/
-
-2. SerpAPI: 设置环境变量 SERPAPI_API_KEY
-   获取地址: https://serpapi.com/
-
-配置后重新运行程序。"""
+                1. Tavily API: 设置环境变量 TAVILY_API_KEY
+                   获取地址: https://tavily.com/  
+                2. SerpAPI: 设置环境变量 SERPAPI_API_KEY
+                   获取地址: https://serpapi.com/             
+                配置后重新运行程序。"""
 
         print(f"🔍 开始智能搜索: {query}")
 
@@ -99,13 +95,14 @@ class MyAdvancedSearchTool:
         """使用SerpApi搜索"""
         import serpapi
 
-        search = serpapi.GoogleSearch({
-            "q": query,
-            "api_key": os.getenv("SERPAPI_API_KEY"),
-            "num": 3
-        })
+        search = serpapi.search(
+            q = query,
+            engine = "google",
+            api_key = os.getenv("SERPAPI_API_KEY"),
+            num = 3
+        )
 
-        results = search.get_dict()
+        results = search.as_dict()
 
         result = "🔗 Google搜索结果:\n"
         if "organic_results" in results:
