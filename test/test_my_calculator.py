@@ -27,10 +27,10 @@ def test_calculator_tool():
 
 def test_with_simple_agent():
     """测试与SimpleAgent的集成"""
-    from core.llm import HelloAgentsLLM
+    from core.llm import AgentsLLM
 
     # 创建LLM客户端
-    llm = HelloAgentsLLM()
+    llm = AgentsLLM()
 
     # 创建包含计算器的注册表
     registry = create_calculator_registry()
