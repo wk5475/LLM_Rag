@@ -22,7 +22,7 @@ class Log(logging.Logger):
 
     def __init__(self):
         if not hasattr(self, "_initialized"):
-            super(Log, self).__init__("agent", level=logging.INFO)
+            super(Log, self).__init__("agents", level=logging.INFO)
             self.handlers = []
             self.addHandler(self.file_handler())
             self.addHandler(self.console_handler())
@@ -37,7 +37,7 @@ class Log(logging.Logger):
         base_dir = Path(__file__).resolve(strict=True).parent.parent
         if not os.path.exists("%s/logs" % base_dir):
             os.makedirs("%s/logs" % base_dir)
-        path = os.path.join(base_dir, "logs", "agent.log")
+        path = os.path.join(base_dir, "logs", "agents.log")
         file_handler = ConcurrentRotatingFileHandler(
             path, mode="a", maxBytes=10 * 1024 * 1024, backupCount=5, encoding="utf-8"
         )

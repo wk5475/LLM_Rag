@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2026/1/9 10:05
 # @Author  : wang ke
-# @File    : agent.py
+# @File    : agents.py
 # @Software: PyCharm
 
 from abc import ABC, abstractmethod
 from typing import Optional, Any
 from core.message import Message
-from core.llm import HelloAgentsLLM
+from core.llm import AgentsLLM
 from core.config import Config
 
 
@@ -18,7 +18,7 @@ class Agent(ABC):
     def __init__(
             self,
             name: str,
-            llm: HelloAgentsLLM,
+            llm: AgentsLLM,
             system_prompt: Optional[str] = None,
             config: Optional[Config] = None
     ):
