@@ -105,7 +105,7 @@ class ReActAgent(Agent):
             if hasattr(tool, '_available_tools') and tool._available_tools:
                 for mcp_tool in tool._available_tools:
                     # 创建包装工具
-                    from ..tools.base import Tool
+                    from tools.base import Tool
                     wrapped_tool = Tool(
                         name=f"{tool.name}_{mcp_tool['name']}",
                         description=mcp_tool.get('description', ''),

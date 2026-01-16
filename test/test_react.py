@@ -83,6 +83,7 @@ def demo_react_agent():
     # 初始化工具注册表并注册搜索工具
     tool_registry = ToolRegistry()
     search_description = "一个网页搜索引擎。当你需要回答关于时事、事实以及在你的知识库中找不到的信息时，应使用此工具。"
+
     tool_registry.register_function("Search", search_description, search)
 
     # 创建 ReAct 智能体
